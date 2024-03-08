@@ -91,7 +91,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
         , {_XOR_("Add 5 Samples"), false}
         , {_XOR_("No Recoil"), false}
         , {_XOR_("Inf Backpack"), false}
-        , {_XOR_("Inf Special Weapon"), true}
+        , {_XOR_("Inf Special Weapon"), false}
         , {_XOR_("No Laser Cannon Overheat"), false}
         , {_XOR_("Instant Railgun"), false}
         , {_XOR_("Show All Map Icons"), true}
