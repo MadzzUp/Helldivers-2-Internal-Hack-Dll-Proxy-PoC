@@ -76,13 +76,13 @@ DWORD WINAPI Payload(LPVOID lpParam)
     std::vector<Checkbox> checkboxes = { 
           {_XOR_("Inf Health"), false}
         , {_XOR_("Inf Grenades"), false}
-        , {_XOR_("GrenLegit)"), true}
+        , {_XOR_("GrenLegit)"), false}
         , {_XOR_("Inf Ammo"), false}
-        , {_XOR_("MunitionsLEgit"), true}
+        , {_XOR_("MunitionsLEgit"), false}
         , {_XOR_("Inf Syringes"), false}
-        , {_XOR_("SeringuesLegit"), true}
-        , {_XOR_("CourirLgtmps"), true}
-        , {_XOR_("Stratillimit"), true}
+        , {_XOR_("SeringuesLegit"), false}
+        , {_XOR_("CourirLgtmps"), false}
+        , {_XOR_("Stratillimit"), false}
         , {_XOR_("MoveSpeed X6"), false}
         , {_XOR_("Inf Mission Time"), false}
         //, {"One / Two Hit Kill ( Bile Titan Bug, Aim Only Head )", false}
@@ -94,11 +94,11 @@ DWORD WINAPI Payload(LPVOID lpParam)
         , {_XOR_("Inf Special Weapon"), false}
         , {_XOR_("No Laser Cannon Overheat"), false}
         , {_XOR_("Instant Railgun"), false}
-        , {_XOR_("IconesMap"), true}
+        , {_XOR_("IconesMap"), false}
         , {_XOR_("No Stationary Turret Overheat"), false}
         , {_XOR_("No Backpack Shield Cooldown"), false}
         , {_XOR_("No JetPack Cooldown"), false}
-        , {_XOR_("DebloquerStrats"), true}
+        , {_XOR_("DebloquerStrats"), false}
         , {_XOR_("DebloquerEquipement"), true}
         , {_XOR_("DebloquerTenues"), true}
     
