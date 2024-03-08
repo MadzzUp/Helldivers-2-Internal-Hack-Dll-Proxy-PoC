@@ -76,13 +76,13 @@ DWORD WINAPI Payload(LPVOID lpParam)
     std::vector<Checkbox> checkboxes = { 
           {_XOR_("Inf Health"), false}
         , {_XOR_("Inf Grenades"), false}
-        , {_XOR_("Inf Grenades(Legit)"), true}
+        , {_XOR_("GrenLegit)"), true}
         , {_XOR_("Inf Ammo"), false}
-        , {_XOR_("Inf Ammo(Legit)"), true}
+        , {_XOR_("MunitionsLEgit"), true}
         , {_XOR_("Inf Syringes"), false}
-        , {_XOR_("Inf Syringes(Legit)"), true}
-        , {_XOR_("Inf Stamina"), true}
-        , {_XOR_("Inf Stratagems"), true}
+        , {_XOR_("SeringuesLegit"), true}
+        , {_XOR_("CourirLgtmps"), true}
+        , {_XOR_("Stratillimit"), true}
         , {_XOR_("MoveSpeed X6"), false}
         , {_XOR_("Inf Mission Time"), false}
         //, {"One / Two Hit Kill ( Bile Titan Bug, Aim Only Head )", false}
@@ -91,16 +91,16 @@ DWORD WINAPI Payload(LPVOID lpParam)
         , {_XOR_("Add 5 Samples"), false}
         , {_XOR_("No Recoil"), false}
         , {_XOR_("Inf Backpack"), false}
-        , {_XOR_("Inf Special Weapon"), true}
+        , {_XOR_("Inf Special Weapon"), false}
         , {_XOR_("No Laser Cannon Overheat"), false}
         , {_XOR_("Instant Railgun"), false}
-        , {_XOR_("Show All Map Icons"), true}
+        , {_XOR_("IconesMap"), true}
         , {_XOR_("No Stationary Turret Overheat"), false}
         , {_XOR_("No Backpack Shield Cooldown"), false}
         , {_XOR_("No JetPack Cooldown"), false}
-        , {_XOR_("All Stratagems in Loadout"), true}
-        , {_XOR_("All Equipment in Armory"), true}
-        , {_XOR_("All Armor in Armory"), true}
+        , {_XOR_("DebloquerStrats"), true}
+        , {_XOR_("DebloquerEquipement"), true}
+        , {_XOR_("DebloquerTenues"), true}
     
     }; // Initialize all checkboxes to unchecked
     const int numCheckboxes = checkboxes.size();
@@ -175,7 +175,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("Inf Grenades(Legit)"))
+            if (checkboxes[i].title == _XOR_("GrenLegit)"))
             {
                 if (!gData.InfGrenadesLegit && !gData.InfGrenades)
                 {
@@ -209,7 +209,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("Inf Ammo(Legit)"))
+            if (checkboxes[i].title == _XOR_("MunitionsLEgit"))
             {
                 if (!gData.InfAmmoLegit && !gData.InfAmmo)
                 {
@@ -242,7 +242,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("Inf Syringes(Legit)"))
+            if (checkboxes[i].title == _XOR_("SeringuesLegit"))
             {
                 if (!gData.InfSyringesLegit && !gData.InfSyringes)
                 {
@@ -265,7 +265,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("Inf Stamina"))
+            if (checkboxes[i].title == _XOR_("CourirLgtmps"))
             {
                 if (!gData.InfStamina)
                 {
@@ -277,7 +277,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("Inf Stratagems"))
+            if (checkboxes[i].title == _XOR_("Stratillimit"))
             {
                 if (!gData.InfStratagems)
                 {
@@ -500,7 +500,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("Show All Map Icons"))
+            if (checkboxes[i].title == _XOR_("IconesMap"))
             {
                 if (!gData.ShowAllMapIcons)
                 {
@@ -537,11 +537,11 @@ DWORD WINAPI Payload(LPVOID lpParam)
                     Memory::Patch((LPVOID)(aob_GetMinorInterestBlipIcon), ShowAllMapIconsByte3, 2);
                     Memory::Patch((LPVOID)(aob_CheckMissionBlip), ShowAllMapIconsByte2n4, 2);
                     gData.ShowAllMapIcons = !gData.ShowAllMapIcons;
-                    printf(_XOR_("[Active] Show All Map Icons\n"));
+                    printf(_XOR_("[Active] IconesMap\n"));
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("All Stratagems in Loadout"))
+            if (checkboxes[i].title == _XOR_("DebloquerStrats"))
             {
                 if (!gData.AllStratagems)
                 {
@@ -557,7 +557,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("All Equipment in Armory"))
+            if (checkboxes[i].title == _XOR_("DebloquerEquipement"))
             {
                 if (!gData.AllEquipment)
                 {
@@ -573,7 +573,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
-            if (checkboxes[i].title == _XOR_("All Armor in Armory"))
+            if (checkboxes[i].title == _XOR_("DebloquerTenues"))
             {
                 if (!gData.AllArmor)
                 {
