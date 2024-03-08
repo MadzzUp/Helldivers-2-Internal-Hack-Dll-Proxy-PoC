@@ -76,13 +76,13 @@ DWORD WINAPI Payload(LPVOID lpParam)
     std::vector<Checkbox> checkboxes = { 
           {_XOR_("Inf Health"), false}
         , {_XOR_("Inf Grenades"), false}
-        , {_XOR_("Inf Grenades(Legit)"), false}
+        , {_XOR_("Inf Grenades(Legit)"), true}
         , {_XOR_("Inf Ammo"), false}
-        , {_XOR_("Inf Ammo(Legit)"), false}
+        , {_XOR_("Inf Ammo(Legit)"), true}
         , {_XOR_("Inf Syringes"), false}
-        , {_XOR_("Inf Syringes(Legit)"), false}
-        , {_XOR_("Inf Stamina"), false}
-        , {_XOR_("Inf Stratagems"), false}
+        , {_XOR_("Inf Syringes(Legit)"), true}
+        , {_XOR_("Inf Stamina"), true}
+        , {_XOR_("Inf Stratagems"), true}
         , {_XOR_("MoveSpeed X6"), false}
         , {_XOR_("Inf Mission Time"), false}
         //, {"One / Two Hit Kill ( Bile Titan Bug, Aim Only Head )", false}
@@ -91,16 +91,16 @@ DWORD WINAPI Payload(LPVOID lpParam)
         , {_XOR_("Add 5 Samples"), false}
         , {_XOR_("No Recoil"), false}
         , {_XOR_("Inf Backpack"), false}
-        , {_XOR_("Inf Special Weapon"), false}
+        , {_XOR_("Inf Special Weapon"), true}
         , {_XOR_("No Laser Cannon Overheat"), false}
         , {_XOR_("Instant Railgun"), false}
-        , {_XOR_("Show All Map Icons"), false}
+        , {_XOR_("Show All Map Icons"), true}
         , {_XOR_("No Stationary Turret Overheat"), false}
         , {_XOR_("No Backpack Shield Cooldown"), false}
         , {_XOR_("No JetPack Cooldown"), false}
-        , {_XOR_("All Stratagems in Loadout"), false}
-        , {_XOR_("All Equipment in Armory"), false}
-        , {_XOR_("All Armor in Armory"), false}
+        , {_XOR_("All Stratagems in Loadout"), true}
+        , {_XOR_("All Equipment in Armory"), true}
+        , {_XOR_("All Armor in Armory"), true}
     
     }; // Initialize all checkboxes to unchecked
     const int numCheckboxes = checkboxes.size();
@@ -116,47 +116,6 @@ DWORD WINAPI Payload(LPVOID lpParam)
         Sleep(1000);
     } while (!moduleHandle);
     Sleep(100);
-
-
-    //Show Console
-    InitializeConsole();
-    
-    do {
-
-        displayCheckboxes(checkboxes, selectedCheckbox);
-
-        // Get user input
-        userInput = _getch(); // Use _getch() for reading a single character without pressing Enter
-
-        // Handle arrow key input
-        switch (userInput) {
-        case 72: // Up arrow key
-            selectedCheckbox = (selectedCheckbox == 0) ? numCheckboxes - 1 : selectedCheckbox - 1;
-            break;
-
-        case 80: // Down arrow key
-            selectedCheckbox = (selectedCheckbox == numCheckboxes - 1) ? 0 : selectedCheckbox + 1;
-            break;
-
-        case ' ': // Space bar
-            // Toggle the state of the selected checkbox
-            checkboxes[selectedCheckbox].checked = !checkboxes[selectedCheckbox].checked;
-            break;
-
-        case 13: // Enter key
-            std::cout << _XOR_("Activate Cheat Feature.\n");
-            break;
-
-        case 27: // Esc key
-
-            break;
-
-        default:
-            // Ignore other key presses
-            break;
-        }
-
-    } while (userInput != 13); // Loop until the Esc key is pressed
 
     for (size_t i = 0; i < checkboxes.size(); ++i) {
         if (checkboxes[i].checked)
